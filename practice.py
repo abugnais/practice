@@ -49,6 +49,22 @@ def addTwoNumbers(l1, l2):
         
     for i, n in enumerate(l2):
         n2 = n2 + n * 10**i
-        
-    print(n1)
-    print(n2)
+
+    return n1 + n2
+
+import string
+
+def base62(n):
+    charlist = list(string.digits + string.ascii_lowercase + string.ascii_uppercase)
+    hsh = []
+
+    while n > 0:
+        remainder = n % 62
+        n = n // 62
+        hsh = [charlist[remainder]] + hsh
+    return ''.join(hsh)
+
+print(base62(682))
+
+
+
